@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/button"
 import { UserManagement } from "@/components/user-management"
 import { UserList } from "@/components/user-list"
 import { NotificationSender } from "@/components/notification-sender"
-import { UpdateSender } from "@/components/update-sender"
 import { UrlManager } from "@/components/url-manager"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { useFirebaseAuth } from "@/hooks/use-firebase-auth"
@@ -17,6 +16,7 @@ import { database } from "@/lib/firebase"
 import { ref, onValue } from "firebase/database"
 import { AlertCircle, Wifi, WifiOff, Shield, Loader2, Info } from "lucide-react"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { UpdateSender } from "@/components/update-sender"
 
 export default function Dashboard() {
   const { user: authUser, loading: authLoading, error: authError, isAuthenticated } = useFirebaseAuth()
@@ -139,29 +139,42 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-background p-4">
       <div className="max-w-7xl mx-auto">
+        {/* Header mejorado */}
         <div className="mb-8 mt-6 sm:mt-8">
-          {/* SOLO EN MÓVIL: Título centrado */}
-          <h1 className="text-2xl sm:text-3xl font-bold luxury-logo mb-2 text-center sm:text-left">Luxury Dashboard Admin</h1>
-          {/* SOLO EN MÓVIL: Grid para descripción y estados */}
-          <div className="grid grid-cols-1 sm:flex sm:flex-row sm:items-center sm:justify-between gap-2">
-            <p className="text-muted-foreground text-base sm:text-lg mb-0 sm:mb-0 col-span-1 sm:col-auto text-center sm:text-left">Panel de administración para gestionar usuarios y notificaciones</p>
-            <div className="flex flex-row justify-center sm:justify-end items-center gap-2 sm:gap-4 mt-2 sm:mt-0 col-span-1 sm:col-auto">
+          {/* Título principal con gradiente y mejor tipografía */}
+          <div className="text-center sm:text-left mb-4">
+            <h1 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 bg-clip-text text-transparent luxury-logo mb-2">
+              Luxury Dashboard Admin
+            </h1>
+            <div className="h-1 w-24 sm:w-32 bg-gradient-to-r from-yellow-400 to-yellow-600 mx-auto sm:mx-0 rounded-full"></div>
+          </div>
+          
+          {/* Descripción y estados mejorados */}
+          <div className="grid grid-cols-1 sm:flex sm:flex-row sm:items-center sm:justify-between gap-4">
+            <p className="text-muted-foreground text-base sm:text-lg text-center sm:text-left leading-relaxed">
+              Panel de administración para gestionar usuarios y notificaciones
+            </p>
+            
+            {/* Estados con mejor diseño */}
+            <div className="flex flex-row justify-center sm:justify-end items-center gap-3 sm:gap-4">
               <ThemeToggle />
+              
               {isAuthenticated && (
-                <div className="flex items-center gap-2 text-green-600 dark:text-green-400">
-                  <Shield className="h-4 w-4" />
-                  <span className="text-sm">Autenticado</span>
+                <div className="flex items-center gap-2 bg-green-500/10 dark:bg-green-400/10 px-3 py-1.5 rounded-full border border-green-500/20 dark:border-green-400/20">
+                  <Shield className="h-4 w-4 text-green-600 dark:text-green-400" />
+                  <span className="text-sm font-medium text-green-600 dark:text-green-400">Autenticado</span>
                 </div>
               )}
+              
               {isConnected ? (
-                <div className="flex items-center gap-2 text-green-600 dark:text-green-400">
-                  <Wifi className="h-4 w-4" />
-                  <span className="text-sm">Conectado</span>
+                <div className="flex items-center gap-2 bg-green-500/10 dark:bg-green-400/10 px-3 py-1.5 rounded-full border border-green-500/20 dark:border-green-400/20">
+                  <Wifi className="h-4 w-4 text-green-600 dark:text-green-400" />
+                  <span className="text-sm font-medium text-green-600 dark:text-green-400">Conectado</span>
                 </div>
               ) : (
-                <div className="flex items-center gap-2 text-red-600 dark:text-red-400">
-                  <WifiOff className="h-4 w-4" />
-                  <span className="text-sm">Desconectado</span>
+                <div className="flex items-center gap-2 bg-red-500/10 dark:bg-red-400/10 px-3 py-1.5 rounded-full border border-red-500/20 dark:border-red-400/20">
+                  <WifiOff className="h-4 w-4 text-red-600 dark:text-red-400" />
+                  <span className="text-sm font-medium text-red-600 dark:text-red-400">Desconectado</span>
                 </div>
               )}
             </div>
@@ -204,7 +217,7 @@ export default function Dashboard() {
           </Select>
         </div>
         <Tabs value={tabValue} onValueChange={setTabValue} className="space-y-4">
-          <TabsList className="hidden sm:grid w-full grid-cols-6">
+          <TabsList className="hidden sm:grid w-full grid-cols-5">
             <TabsTrigger value="create" className="interactive-element">Crear Usuario</TabsTrigger>
             <TabsTrigger value="users" className="interactive-element">Gestión de Usuarios</TabsTrigger>
             <TabsTrigger value="notifications" className="interactive-element">Notificaciones</TabsTrigger>
