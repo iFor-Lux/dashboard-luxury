@@ -17,7 +17,6 @@ import { database } from "@/lib/firebase"
 import { ref, onValue } from "firebase/database"
 import { AlertCircle, Wifi, WifiOff, Shield, Loader2, Info } from "lucide-react"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import FileManager from "@/components/file-manager"
 
 export default function Dashboard() {
   const { user: authUser, loading: authLoading, error: authError, isAuthenticated } = useFirebaseAuth()
@@ -311,20 +310,6 @@ export default function Dashboard() {
                     </AlertDescription>
                   </Alert>
                 )}
-              </CardContent>
-            </Card>
-          </TabsContent>
-
-          <TabsContent value="files">
-            <Card className="card-hover">
-              <CardHeader>
-                <CardTitle>Sección 5: Archivos</CardTitle>
-                <p className="text-sm text-muted-foreground">
-                  Aquí podrás gestionar archivos (subir, ver, eliminar, etc.)
-                </p>
-              </CardHeader>
-              <CardContent>
-                <FileManager />
               </CardContent>
             </Card>
           </TabsContent>
