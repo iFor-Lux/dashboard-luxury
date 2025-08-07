@@ -1,0 +1,276 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Sistema de color principal - Modo Claro */
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    
+    /* Variables adicionales */
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+    
+    /* Radio de bordes */
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Modo oscuro mejorado con colores más modernos y elegantes */
+    --background: 240 10% 3.9%; /* Fondo principal más oscuro */
+    --foreground: 0 0% 98%;
+    --card: 240 10% 5%; /* Tarjetas ligeramente más claras que el fondo */
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 5%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 142.1 76.2% 36.3%; /* Verde más vibrante para modo oscuro */
+    --primary-foreground: 355.7 100% 97.3%;
+    --secondary: 240 3.7% 15.9%; /* Secundario más sutil */
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%; /* Texto secundario más legible */
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%; /* Bordes más sutiles */
+    --input: 240 3.7% 15.9%;
+    --ring: 142.1 76.2% 36.3%; /* Ring del mismo color que primary */
+    
+    /* Variables adicionales para modo oscuro */
+    --chart-1: 142.1 76.2% 36.3%; /* Verde */
+    --chart-2: 217.2 91.2% 59.8%; /* Azul */
+    --chart-3: 47.9 95.8% 53.1%; /* Amarillo */
+    --chart-4: 346.8 77.2% 49.8%; /* Rosa */
+    --chart-5: 262.1 83.3% 57.8%; /* Púrpura */
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 142.1 76.2% 36.3%; /* Verde consistente */
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 142.1 76.2% 36.3%;
+  }
+
+  * {
+    @apply border-border;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Fondo con gradiente sutil en modo oscuro */
+  .dark body {
+    background: linear-gradient(135deg, #181824 0%, #232336 100%);
+    min-height: 100vh;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Scrollbar personalizado mejorado para modo oscuro */
+.dark {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(240 3.7% 15.9%) hsl(240 10% 3.9%);
+}
+
+.dark::-webkit-scrollbar {
+  width: 8px;
+}
+
+.dark::-webkit-scrollbar-track {
+  background: hsl(240 10% 3.9%);
+}
+
+.dark::-webkit-scrollbar-thumb {
+  background: hsl(240 3.7% 15.9%);
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.dark::-webkit-scrollbar-thumb:hover {
+  background: hsl(240 3.7% 20%);
+}
+
+/* Estilos mejorados para componentes en modo oscuro */
+.dark .luxury-logo {
+  color: hsl(47.9 95.8% 53.1%);
+  text-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
+  transition: all 0.3s ease;
+}
+
+.dark .luxury-logo:hover {
+  text-shadow: 0 0 30px rgba(251, 191, 36, 0.5);
+}
+
+/* Tarjetas con efectos mejorados */
+.dark .card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: linear-gradient(145deg, hsl(240 10% 5%) 0%, hsl(240 10% 6%) 100%);
+  border: 1px solid hsl(240 3.7% 15.9%);
+}
+
+.dark .card-hover:hover {
+  background: linear-gradient(145deg, hsl(240 10% 6%) 0%, hsl(240 10% 7%) 100%);
+  border-color: hsl(142.1 76.2% 36.3%);
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(34, 197, 94, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Botones mejorados en modo oscuro */
+.dark .btn-primary {
+  background: linear-gradient(135deg, hsl(142.1 76.2% 36.3%) 0%, hsl(142.1 76.2% 32%) 100%);
+  border: none;
+  box-shadow: 0 2px 10px rgba(34, 197, 94, 0.3);
+  transition: all 0.3s ease;
+}
+
+.dark .btn-primary:hover {
+  background: linear-gradient(135deg, hsl(142.1 76.2% 40%) 0%, hsl(142.1 76.2% 36%) 100%);
+  box-shadow: 0 4px 20px rgba(34, 197, 94, 0.4);
+  transform: translateY(-1px);
+}
+
+/* Inputs mejorados */
+.dark input, .dark textarea, .dark select {
+  background: hsl(240 10% 5%);
+  border: 1px solid hsl(240 3.7% 15.9%);
+  transition: all 0.3s ease;
+}
+
+.dark input:focus, .dark textarea:focus, .dark select:focus {
+  border-color: hsl(142.1 76.2% 36.3%);
+  box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.2);
+  background: hsl(240 10% 6%);
+}
+
+/* Badges y estados mejorados */
+.dark .status-active {
+  background: linear-gradient(135deg, hsl(142.1 76.2% 36.3%) 0%, hsl(142.1 76.2% 32%) 100%);
+  color: white;
+  box-shadow: 0 2px 8px rgba(34, 197, 94, 0.3);
+}
+
+.dark .status-warning {
+  background: linear-gradient(135deg, hsl(47.9 95.8% 53.1%) 0%, hsl(47.9 95.8% 48%) 100%);
+  color: hsl(240 10% 3.9%);
+  box-shadow: 0 2px 8px rgba(251, 191, 36, 0.3);
+}
+
+.dark .status-expired {
+  background: linear-gradient(135deg, hsl(0 84.2% 60.2%) 0%, hsl(0 84.2% 55%) 100%);
+  color: white;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+}
+
+/* Animaciones sutiles para elementos interactivos */
+.dark .interactive-element {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark .interactive-element:hover {
+  transform: scale(1.02);
+}
+
+/* Efectos de glassmorphism para modales y popovers */
+.dark .glass-effect {
+  background: rgba(240, 10%, 5%, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(240, 3.7%, 15.9%, 0.5);
+}
+
+/* Mejoras para tablas en modo oscuro */
+.dark table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.dark th {
+  background: hsl(240 10% 6%);
+  border-bottom: 1px solid hsl(240 3.7% 15.9%);
+  font-weight: 600;
+}
+
+.dark td {
+  border-bottom: 1px solid hsl(240 3.7% 12%);
+  transition: background-color 0.2s ease;
+}
+
+.dark tr:hover td {
+  background: hsl(240 10% 6%);
+}
+
+/* Efectos de loading mejorados */
+.dark .loading-spinner {
+  border-color: hsl(240 3.7% 15.9%);
+  border-top-color: hsl(142.1 76.2% 36.3%);
+}
+
+/* Mejoras para alertas y notificaciones */
+.dark .alert-success {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(34, 197, 94, 0.05) 100%);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  color: hsl(142.1 76.2% 60%);
+}
+
+.dark .alert-error {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(239, 68, 68, 0.05) 100%);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  color: hsl(0 84.2% 70%);
+}
+
+.dark .alert-warning {
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.1) 0%, rgba(251, 191, 36, 0.05) 100%);
+  border: 1px solid rgba(251, 191, 36, 0.2);
+  color: hsl(47.9 95.8% 60%);
+}
+
+body.dialog-blur-bg::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: linear-gradient(120deg, rgba(30,30,40,0.85) 0%, rgba(10,10,20,0.85) 100%);
+  backdrop-filter: blur(50px);
+  pointer-events: none;
+}
