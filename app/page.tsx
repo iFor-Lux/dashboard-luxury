@@ -199,7 +199,6 @@ export default function Dashboard() {
               <SelectItem value="users">Gestión de Usuarios</SelectItem>
               <SelectItem value="notifications">Notificaciones</SelectItem>
               <SelectItem value="updates">Updates</SelectItem>
-              <SelectItem value="files">Archivos</SelectItem>
               <SelectItem value="urls">Gestor de URLs</SelectItem>
             </SelectContent>
           </Select>
@@ -210,7 +209,6 @@ export default function Dashboard() {
             <TabsTrigger value="users" className="interactive-element">Gestión de Usuarios</TabsTrigger>
             <TabsTrigger value="notifications" className="interactive-element">Notificaciones</TabsTrigger>
             <TabsTrigger value="updates" className="interactive-element">Updates</TabsTrigger>
-            <TabsTrigger value="files" className="interactive-element">Archivos</TabsTrigger>
             <TabsTrigger value="urls" className="interactive-element">Gestor de URLs</TabsTrigger>
           </TabsList>
 
